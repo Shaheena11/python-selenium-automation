@@ -11,6 +11,8 @@ SEARCH_SUBMIT = (By.CSS_SELECTOR, "button[aria-label='search']")
 @given('Open Target page')
 def open_target(context):
     context.driver.get('https://www.target.com/')
+    #context.app.main_page.open_main()
+
 
 
 @when('Input {search_word} into search field')
