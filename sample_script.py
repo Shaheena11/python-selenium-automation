@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
@@ -21,10 +22,12 @@ search.clear()
 search.send_keys('Tea')
 
 # wait for 4 sec
-sleep(4)
+#sleep(4)
+search.btn = (By.NAME, 'btnK')
 
 # click search button
-driver.find_element(By.NAME, 'btnK').click()
+wait.until(EC.element_to_be_clickable(search.btn), message='Search b..')
+driver.find_element(*search_btn).click()
 
 # verify search results
 assert 'car'.lower() in driver.current_url.lower(), f"Expected query not in {driver.current_url.lower()}"

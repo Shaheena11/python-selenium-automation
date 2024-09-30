@@ -18,6 +18,7 @@ def click_add_to_cart(context):
         EC.visibility_of_element_located(SIDE_NAV_PRODUCT_NAME),
         message='Side navigation product name not visible'
     )
+
 @when('Store product name')
 def store_product_name(context):
     context.product_name = context.driver.find_element(*SIDE_NAV_PRODUCT_NAME).text
@@ -34,6 +35,9 @@ def verify_results(context, product):
     # assert product in actual_result, f'Expected {product}, got actual {actual_result}'
     context.app.search_results_page.verify_results(product)
 
+@then('Verify product {product} in URL')
+def verify_results_url(context, product):
+    context.app.search_results_page.verify_results(product)
 
 @then('Verify that every product has a name and an image')
 def verify_products_name_img(context):
