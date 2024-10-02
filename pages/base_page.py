@@ -2,6 +2,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 
+
 class Page:
 
     def __init__(self, driver):
@@ -47,7 +48,7 @@ class Page:
 
     def wait_for_element_to_disappear(self,*locator):
         self.wait.until(
-            EC.visibility_of_element_located(locator),
+            EC.invisibility_of_element_located(locator),
              message=f'Element by {locator} still shown on the page'
             )
 
@@ -67,7 +68,6 @@ class Page:
 
     def close(self):
         self.driver.close()
-
 
 
     def verify_text(self, expected_text, *locator):

@@ -15,3 +15,4 @@ class MainPage(Page):
         actual_result = self.driver.find_element(*self.CART_EMPTY).text
         expected_result = 'Your cart is empty'
         assert expected_result in actual_result, f'Expected {expected_result}, got actual {actual_result}'
+
